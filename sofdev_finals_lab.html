@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+
+<script>
+    
+    if (value === "") {
+    // If value is an empty string, delete the given prop property from the album.
+    delete records[id][prop];
+  } else if (prop !== "tracks") {
+    // If prop isn't "tracks" and value isn't an empty string, assign the value to that album's prop.
+    records[id][prop] = value;
+  } else {
+    // If prop is "tracks" and value isn't an empty string, update the album's tracks array.
+    if (!records[id].hasOwnProperty("tracks")) {
+      // If the album does not have a tracks property, assign it an empty array.
+      records[id].tracks = [];
+    }
+    // Add the value as the last item in the album's tracks array.
+    records[id].tracks.push(value);
+  }
+
+  // Always return the entire records object.
+  return records;
+
+</script>
+</html>

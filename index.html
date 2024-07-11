@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="finals.css">
+    <link rel="icon" href="tree-removebg-preview.png" type="image/x-icon">
+  </head>
+  <body>
+    <div class="containerImg">
+      <div class="daynight">
+        <img src="nightmode.png" alt="" class="dayNightButton"
+        onclick="
+            changeBackg();
+            ">
+      </div>
+
+      <nav>
+        <div>
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#places">Discover Hindang</a>
+            </li>
+            <li>
+              <a href="#class_ticket">Plan your trip</a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/hindang.tourism">Contact us</a>
+            </li>
+            <li>
+              <img src="search-icon-png-21.png" alt="" class="searchb">
+            </li>
+          </ul>
+          
+        </div>
+      </nav>
+    
+  
+
+    <h1 id="Top">Welcome to Hindang</h1>
+    <div class="center_buttons">
+    <button>Top tours</button>
+    <button>Tickets</button>
+    <button>Travel Info</button>
+    <button>Places to go</button>
+    </div>
+    
+    </div>
+
+    <p class="places" id="places">Places to go</p>
+
+    <div class="img_scroll">
+      <div id="images">
+        <img src="himokilan_island04newss_diaries.jpg" alt="">
+        <img src="hindang.jpg" alt="">
+        <img src="church.jpg" alt="">
+        <img src="himokilan_island09newss_diaries.jpg" alt="">
+        <img src="cave1.png" alt="">
+        <img src="welcome-home.jpg" alt="">
+      </div>
+    </div>
+    
+
+    <div class="img_button">
+        <img src="next.png" alt="" id="leftB">
+
+        <img src="back.png" alt="" id="rightB">
+    </div>
+
+
+
+      <div class="col-md-6-justify-content-center text-center">
+        <div class="border p-3" id="about">
+          <!-- Content for the first column -->
+          <h3>Hindang, Leyte</h3>
+          <p>Hindang is a 5th class municipality in the province of Leyte, Philippines. According to the 2015 census, it has a population of 20,924 people. In the north, it borders with the town of Inopacan while it borders with the town of Hilongos in the south. Himokilan is part of the Cuatro Islas, are within the administrative jurisdiction of the municipality of Hindang. Hindang is politically subdivided into 20 barangays.In 1957, the sitios of Kanhaayon, Kapudlosan, Himokilan, Anolon, Mahilom, Baldoza, and Tagbibi were converted into barrios.</p>
+        </div>
+      </div>
+
+    <div class="row justify-content-center text-center" id="class_ticket">
+
+      <div class="col">
+        <img src="ticket_gold-removebg-preview.png" alt="" id="goldT">
+        <br>
+        Class A tour
+        <br>
+        <label for="goldTicketLabel" id="goldTicketLabel">
+          0
+        </label>
+        <br>
+        <button onclick=" 
+          addTicket('goldTicketLabel');
+        ">
+          +
+        </button>
+
+        <button onclick="
+          minusTicket('goldTicketLabel');
+        ">
+          -
+        </button>
+      </div>
+
+      <div class="col">
+        <img src="silver_ticket-removebg-preview.png" alt="">
+        <br>
+        Class B tour
+        <br>
+        <label for="" id="silverTicket">
+          0
+        </label>
+        <br>
+        <button onclick=" 
+          addTicket('silverTicket');
+        ">
+          +
+        </button>
+
+        <button onclick="
+          minusTicket('silverTicket');
+        ">
+          -
+        </button>
+      </div>
+      <div class="col">
+        <img src="bronze.png" alt="">
+        <br>
+        Class C tour
+        <br>
+        <label for="" id="bronzeTicket">
+          0
+        </label>
+        <br>
+        <button onclick=" 
+          addTicket('bronzeTicket');
+        ">
+          +
+        </button>
+
+        <button onclick="
+          minusTicket('bronzeTicket');
+        ">
+          -
+        </button>
+      </div>
+
+      <div class="col">
+        <img src="normal_ticket-removebg-preview.png" alt="">
+        <br>
+        Class D tour
+        <br>
+        <label for="" id="normalTicket">
+          0
+        </label>
+        <br>
+        <button onclick=" 
+          addTicket('normalTicket');
+        ">
+          +
+        </button>
+
+        <button onclick="
+          minusTicket('normalTicket');
+        ">
+          -
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center text-center align-items-end" id="total">
+        <div class="col-auto">
+          <img src="shopping cart.png" alt="" id="cart">
+        </div>
+        <div class="col-auto">
+          Total: 
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+      <div class="container">
+        <div class="row align-items-center" id="follow">
+          <div class="col text-center"> <!-- Use text-center here -->
+            Follow us
+          </div>
+          <div class="col text-center">
+            <label for="" id="totalPrice">0</label>
+          </div>
+        </div>
+      </div>
+
+    
+
+      <div class="row justify-content-center" id="fbImg">
+        <img src="facebook.png" alt="">
+      </div>
+    </div>
+    
+    
+
+    <script>
+      colorOfBg = 0;
+      var dayNightImage = document.querySelector('.dayNightButton');
+      var h1Color = document.querySelector('p');
+      var colorContainer = document.getElementsByClassName('.img_scroll');
+
+      //scroll image
+      var scrollButtonRight = document.getElementById('rightB');
+      var scrollButtonLeft = document.getElementById('leftB');
+      var scrollContent = document.getElementById('images');
+      var isHoveredRight = false;
+      var isHoveredLeft = false;
+      var scrollAmount =0;
+      var animationFrameId;
+
+      function changeBackg () {
+        if (colorOfBg == 0) {
+          document.body.style.background = "black";
+          colorOfBg = 1;
+          dayNightImage.src = 'daymode.png';
+          h1Color.style.color = "white";
+          colorContainer.style.background.color = "white";
+        } 
+        else if (colorOfBg == 1) {
+          document.body.style.background = "white";
+          colorOfBg =0;
+          dayNightImage.src = 'nightmode.png';
+          h1Color.style.color = "black";
+          document.getElementsByClassName('.img_scroll').style.colorOfBg = "white";
+        }
+      }
+
+      function animateScroll () {
+        if (isHoveredRight) {
+          scrollAmount -=10;
+          scrollContent.style.transform = 'translateX(' + scrollAmount + 'px)';
+          if (scrollContent.offsetWidth + scrollAmount <= scrollContent.parentElement.offsetWidth) {
+            isHoveredRight =false;
+          }
+          requestAnimationFrame(animateScroll);
+        }}
+
+        function animateLeft () {
+         if (isHoveredLeft) {
+          scrollAmount +=10;
+          scrollContent.style.transform = 'translateX(' + scrollAmount + 'px)';
+
+          if (scrollAmount >=0) {
+            isHoveredLeft =false;
+          }
+          requestAnimationFrame(animateLeft);        
+      }
+      else if (isHoveredLeft == false) {
+        scrollContent.style.transform = 'transl'
+      }
+    }
+
+      //right
+      scrollButtonRight.addEventListener('mouseenter', function() {
+      isHoveredRight = true;
+      animateScroll();  
+      });
+      scrollButtonRight.addEventListener('mouseleave', function() {
+      isHoveredRight = false;
+      cancelAnimationFrame(animateScroll);
+      });
+      //left
+      scrollButtonLeft.addEventListener('mouseenter', function() {
+      isHoveredLeft = true;
+      animateLeft();
+      });
+      scrollButtonLeft.addEventListener('mouseleave', function() {
+      isHoveredLeft= false;
+      cancelAnimationFrame(animateLeft);
+      });
+      //add/minus tickets
+   
+
+      function addTicket(ticketId) {
+        var ticketLabel = document.getElementById(ticketId);
+        var currentValue = parseInt(ticketLabel.textContent);
+        ticketLabel.textContent = currentValue + 1;
+        updateTotalPrice();
+      }
+
+
+
+      function minusTicket(ticketId2) {
+        var ticketLabel = document.getElementById(ticketId2);
+        var currentValue = parseInt(ticketLabel.textContent);
+        if (currentValue == 0) {
+          return;
+        } else if (currentValue > 0) {
+          ticketLabel.textContent = currentValue - 1;
+        }
+        updateTotalPrice();
+      }
+      
+    
+      function updateTotalPrice() {
+      var goldTicketValue = parseInt(document.getElementById("goldTicketLabel").textContent) || 0;
+      var silverTicketValue = parseInt(document.getElementById("silverTicket").textContent) || 0;
+      var bronzeTicketValue = parseInt(document.getElementById("bronzeTicket").textContent) || 0;
+      var normalTicketValue = parseInt(document.getElementById("normalTicket").textContent) || 0;
+
+      var totalValue = (goldTicketValue* 1000 )+ (silverTicketValue * 500 )+ (bronzeTicketValue * 300)+ (normalTicketValue * 100);
+
+      document.getElementById("totalPrice").textContent = totalValue;
+    }
+
+
+    </script>
+  </body>
+</html>
